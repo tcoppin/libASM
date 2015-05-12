@@ -6,7 +6,7 @@
 /*   By: tcoppin <tcoppin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/10 13:38:19 by tcoppin           #+#    #+#             */
-/*   Updated: 2015/05/11 19:00:48 by tcoppin          ###   ########.fr       */
+/*   Updated: 2015/05/12 13:11:06 by tcoppin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define LIBFTS_H
 
 #include <stdlib.h>
+#include <ctype.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
 
 void	ft_bzero(void *s, size_t n);
 char	*ft_strcat(char *s1, char *s2);
