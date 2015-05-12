@@ -6,18 +6,19 @@
 /*   By: tcoppin <tcoppin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/10 13:38:19 by tcoppin           #+#    #+#             */
-/*   Updated: 2015/05/12 13:11:06 by tcoppin          ###   ########.fr       */
+/*   Updated: 2015/05/12 21:06:18 by tcoppin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFTS_H
 # define LIBFTS_H
 
-#include <stdlib.h>
-#include <ctype.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <string.h>
+# include <stdlib.h>
+# include <ctype.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <string.h>
+# include <fcntl.h>
 
 void	ft_bzero(void *s, size_t n);
 char	*ft_strcat(char *s1, char *s2);

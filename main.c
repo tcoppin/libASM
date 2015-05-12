@@ -6,7 +6,7 @@
 /*   By: tcoppin <tcoppin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/10 13:43:36 by tcoppin           #+#    #+#             */
-/*   Updated: 2015/05/12 16:55:57 by tcoppin          ###   ########.fr       */
+/*   Updated: 2015/05/12 21:07:57 by tcoppin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -327,9 +327,9 @@ void	test_toupper()
 /* TEST FT_PUTS */
 void	launch_puts(char *str)
 {
-	write(1, "\033[92mft_puts : \033[37m", 15);
+	write(1, "\033[92mft_puts : \033[00m", 15);
 	ft_puts(str);
-	write(1, "\033[91mputs : \033[37m", 12);
+	write(1, "\033[91mputs : \033[00m", 12);
 	puts(str);
 }
 
@@ -348,6 +348,170 @@ void	test_puts()
 	}
 }
 
+/* TEST FT_STRLEN */
+int		launch_strlen(char *str)
+{
+	if (!str)
+	{
+		if (ft_strlen(str) == 0)
+			return (1);
+	}
+	if (ft_strlen(str) == strlen(str))
+		return (1);
+	else
+		return (0);
+}
+
+void	test_strlen()
+{
+	int		nb;
+	char	*tab[] = {"Hello World !", "Coucou", "123456789", NULL};
+
+	printf("\n\033[33m------- Test FT_STRLEN -------\033[00m\n");
+	nb = 0;
+	while (nb < 4)
+	{
+		printf("\033[94mTest number %d with \"%s\" : \033[00m", (nb + 1), tab[nb]);
+		if (launch_strlen(tab[nb]) == 1)
+			printf("\033[32mOK\033[00m\n");
+		else
+			printf("\033[31mERROR\033[00m\n");
+		nb++;
+	}
+}
+
+/* TEST FT_MEMSET */
+int		launch_memset(char *str, int c, int n)
+{
+	char	*s1;
+	char	*s2;
+
+	s1 = strdup(str);
+	s2 = strdup(str);
+	ft_memset(s1, c, n);
+	memset(s2, c, n);
+	if (memcmp(s1, s2, 10) == 0)
+		return (1);
+	else
+		return (0);
+}
+
+void	test_memset()
+{
+	int		nb;
+	char	*tab[] = {"Hello World !", "Coucou", "123456789", ""};
+	char	tab2[] = {'a', 'B', ' ', 0};
+	int		tab3[] = {5, 7, 0, 5};
+
+	printf("\n\033[33m------- Test FT_MEMSET -------\033[00m\n");
+	nb = 0;
+	while (nb < 4)
+	{
+		printf("\033[94mTest number %d with \"%s\", '%c' and %d :\033[00m ", (nb + 1), tab[nb], tab2[nb], tab3[nb]);
+		if (launch_memset(tab[nb], tab2[nb], tab3[nb]) == 1)
+			printf("\033[32mOK\033[00m\n");
+		else
+			printf("\033[31mERROR\033[00m\n");
+		nb++;
+	}
+}
+
+/* TEST FT_MEMCPY */
+int		launch_memcpy(char *str, char *str2, int n)
+{
+	char	*s1;
+	char	*s2;
+	char	*s3;
+	char	*s4;
+
+	s1 = strdup(str);
+	s2 = strdup(str);
+	s3 = strdup(str2);
+	s4 = strdup(str2);
+	ft_memcpy(s1, s3, n);
+	memcpy(s2, s4, n);
+	if (memcmp(s1, s2, 10) == 0)
+		return (1);
+	else
+		return (0);
+}
+
+void	test_memcpy()
+{
+	int		nb;
+	char	*tab[] = {"Hello World !", "Coucou", "123456789", ""};
+	char	*tab2[] = {"Salut Monde ?", "Salut.", "abcdefghi", ""};
+	int		tab3[] = {6, 3, 5, 2};
+
+	printf("\n\033[33m------- Test FT_MEMCPY -------\033[00m\n");
+	nb = 0;
+	while (nb < 4)
+	{
+		printf("\033[94mTest number %d with \"%s\", \"%s\" and %d :\033[00m ", (nb + 1), tab[nb], tab2[nb], tab3[nb]);
+		if (launch_memcpy(tab[nb], tab2[nb], tab3[nb]) == 1)
+			printf("\033[32mOK\033[00m\n");
+		else
+			printf("\033[31mERROR\033[00m\n");
+		nb++;
+	}
+}
+
+/* TEST FT_STRDUP */
+/*int		launch_strdup(char *str)
+{
+	char	*s1;
+	char	*s2;
+
+	(void)str;
+	s1 = ft_strdup("toto");
+	s2 = strdup("toto");
+	if (strcmp(ft_strdup("aaaaa"), "aaaaa") == 0)
+		return (1);
+	else
+		return (0);
+}
+
+void	test_strdup()
+{
+	int		nb;
+	char	*tab[] = {"Hello World !", "Coucou", "123456789", ""};
+
+	printf("\n\033[33m------- Test FT_STRDUP -------\033[00m\n");
+	nb = 0;
+	while (nb < 4)
+	{
+		printf("\033[94mTest number %d with \"%s\" :\033[00m \n", (nb + 1), tab[nb]);
+		if (launch_strdup(tab[nb]) == 1)
+			printf("\033[32mOK\033[00m\n");
+		else
+			printf("\033[31mERROR\033[00m\n");
+		nb++;
+	}
+}*/
+
+/* TEST FT_CAT */
+void	launch_cat(int fd)
+{
+	ft_cat(fd);
+}
+
+void	test_cat()
+{
+	int		nb;
+	int		fd;
+
+	printf("\n\033[33m------- Test FT_CAT -------\033[00m\n");
+	nb = 0;
+	printf("\033[94mTest number %d with fd = 0 :\033[00m \nEnter a text : \n", (nb + 1));
+	launch_cat(0);
+	nb++;
+	fd = open("Makefile", O_RDONLY);
+	printf("\n\033[94mTest number %d with fd = %d :\033[00m \n", (nb + 1), fd);
+	launch_cat(fd);
+	close(fd);
+	nb++;
+}
+
 int		main(void)
 {
 	test_bzero();
@@ -360,6 +524,11 @@ int		main(void)
 	test_tolower();
 	test_toupper();
 	test_puts();
+	test_strlen();
+	test_memset();
+	test_memcpy();
+	//test_strdup();
+	test_cat();
 	printf("\n");
 	return (0);
 }
