@@ -6,34 +6,30 @@
 ;    By: tcoppin <tcoppin@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/05/10 17:33:48 by tcoppin           #+#    #+#              ;
-;    Updated: 2015/05/12 00:01:14 by tcoppin          ###   ########.fr        ;
+;    Updated: 2015/05/13 13:54:18 by tcoppin          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
 section .text
 	global  _ft_strdup
 	extern  _ft_strlen
-	extern	_ft_memcpy
 	extern 	_malloc
 
 _ft_strdup:
-	push rdi
+	mov rsi, rdi
 	call _ft_strlen
-	push rax
+	inc rax
 	mov rdi, rax
+	push rax
 
 	call _malloc
 	cmp rax, 0
 	je _null
+	pop rcx
 
-	mov r8, rax
-	pop rax
-	mov rdx, rax
-	pop rdi
-	mov rsi, rdi
-	mov rdi, r8
+	mov rdi, rax
 
-	call _ft_memcpy
+	rep movsb
 	ret
 
 _null:

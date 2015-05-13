@@ -6,7 +6,7 @@
 ;    By: tcoppin <tcoppin@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/05/10 13:09:16 by tcoppin           #+#    #+#              ;
-;    Updated: 2015/05/12 00:01:32 by tcoppin          ###   ########.fr        ;
+;    Updated: 2015/05/13 13:43:55 by tcoppin          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -14,6 +14,7 @@ section .text
 	global _ft_strlen
 
 _ft_strlen:
+	push rdi
 	mov rax, 0
 
 	cmp rdi, 0
@@ -27,4 +28,5 @@ _ft_strlen:
 	sub rax, 2 
 
 finish:
+	pop rdi
 	ret
