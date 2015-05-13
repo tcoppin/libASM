@@ -6,7 +6,7 @@
 ;    By: tcoppin <tcoppin@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/05/10 17:29:43 by tcoppin           #+#    #+#              ;
-;    Updated: 2015/05/13 12:05:45 by tcoppin          ###   ########.fr        ;
+;    Updated: 2015/05/13 17:31:40 by tcoppin          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -29,6 +29,7 @@ msg:
 	mov rdi, 1
 	mov rax, 0x2000004
 	syscall
+	jc error
 
 back_n:
 	mov rax, 0x2000004
@@ -36,6 +37,7 @@ back_n:
 	lea rsi, [rel new_line]
 	mov rdx, 1
 	syscall
+	jc error
 	jmp finish
 
 null:
@@ -44,10 +46,15 @@ null:
 	lea rsi, [rel null_msg]
 	mov rdx, 7
 	syscall
+	jc error
 	jmp finish
 
 null_msg:
 	db "(null)", 10
+
+error:
+	mov rax, -1
+	ret
 
 finish:
 	ret

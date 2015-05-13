@@ -6,7 +6,7 @@
 ;    By: tcoppin <tcoppin@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/05/10 17:33:48 by tcoppin           #+#    #+#              ;
-;    Updated: 2015/05/13 15:19:59 by tcoppin          ###   ########.fr        ;
+;    Updated: 2015/05/13 17:13:35 by tcoppin          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -17,7 +17,7 @@ section .text
 	extern	_ft_memcpy
 
 _ft_strdup:
-	mov	r8, rdi
+	mov	rbx, rdi
 	call _ft_strlen
 	mov	rdi, rax
 	inc	rdi
@@ -26,9 +26,9 @@ _ft_strdup:
 	call _malloc
 	cmp rax, 0
 	je finish
-	
+
 	mov rdi, rax
-	mov rsi, r8
+	mov rsi, rbx
 	pop rdx
 
 	call _ft_memcpy

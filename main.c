@@ -6,7 +6,7 @@
 /*   By: tcoppin <tcoppin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/10 13:43:36 by tcoppin           #+#    #+#             */
-/*   Updated: 2015/05/13 15:20:13 by tcoppin          ###   ########.fr       */
+/*   Updated: 2015/05/13 17:18:41 by tcoppin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -336,6 +336,8 @@ void	launch_puts(char *str)
 void	test_puts()
 {
 	int		nb;
+	int		i;
+	int		j;	
 	char	*tab[] = {"Hello World !", "Coucou", NULL, "123456789"};
 
 	printf("\n\033[33m------- Test FT_PUTS -------\033[00m\n");
@@ -346,6 +348,14 @@ void	test_puts()
 		launch_puts(tab[nb]);
 		nb++;
 	}
+	close(1);
+	printf("\033[94mTest number %d with \"Bonjour\" :\033[00m\n", (nb + 1));
+	write(1, "\033[92mft_puts : \033[00m", 15);
+	i = ft_puts("Bonjour");
+	write(1, "\033[91mputs : \033[00m", 12);
+	j = puts("Bonjour");
+	dup2(0, 1);
+	printf("%d ... %d", i, j);
 }
 
 /* TEST FT_STRLEN */
@@ -464,20 +474,34 @@ int		launch_strdup(char *str)
 
 	s1 = ft_strdup(str);
 	s2 = strdup(str);
+
 	if (strcmp(s1, s2) == 0)
+	{
+		free(s1);
+		free(s2);
 		return (1);
+	}
 	else
+	{
+		free(s1);
+		free(s2);
 		return (0);
+	}
+}
+
+void	ft_putstr(char *str)
+{
+	write(1, str, strlen(str));
 }
 
 void	test_strdup()
 {
 	int		nb;
-	char	*tab[] = {"Hello World !", "Coucou", "123456789", ""};
+	char	*tab[] = {"H", "Hello", ""};
 
 	printf("\n\033[33m------- Test FT_STRDUP -------\033[00m\n");
 	nb = 0;
-	while (nb < 4)
+	while (nb < 3)
 	{
 		printf("\033[94mTest number %d with \"%s\" :\033[00m \n", (nb + 1), tab[nb]);
 		if (launch_strdup(tab[nb]) == 1)
@@ -486,20 +510,6 @@ void	test_strdup()
 			printf("\033[31mERROR\033[00m\n");
 		nb++;
 	}
-	/*char		*str;
-	char		f[] = "h";
-	char		s[] = "hello";
-	char		t[] = "";
-
-	printf("[+] STRDUP [+]\n");
-	printf("[-] Str init [-]\n");
-	str = ft_strdup(f);
-	printf("[-] Str after strdup (\"%s\") [-]\n", str);
-	str = ft_strdup(s);
-	printf("[-] Str after strdup (\"%s\") [-]\n", str);
-	str = ft_strdup(t);
-	printf("[-] Str after strdup (\"%s\") [-]\n", str);
-	printf("[+] END OF STRDUP [+]\n");*/
 }
 
 /* TEST FT_CAT */
@@ -516,7 +526,7 @@ void	test_cat()
 	printf("\n\033[33m------- Test FT_CAT -------\033[00m\n");
 	nb = 0;
 	printf("\033[94mTest number %d with fd = 0 :\033[00m \nEnter a text and \"Control + D\" to do the other tests : \n", (nb + 1));
-	launch_cat(0);
+	//launch_cat(0);
 	nb++;
 	fd = open("Makefile", O_RDONLY);
 	printf("\n\033[94mTest number %d with fd = %d :\033[00m \n", (nb + 1), fd);

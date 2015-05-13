@@ -6,7 +6,7 @@
 ;    By: tcoppin <tcoppin@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/05/10 16:13:09 by tcoppin           #+#    #+#              ;
-;    Updated: 2015/05/12 19:13:03 by tcoppin          ###   ########.fr        ;
+;    Updated: 2015/05/13 16:30:41 by tcoppin          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -22,8 +22,7 @@ _ft_bzero:
 	cmp rsi, 0
 	je finish
 	
-	push rsi
-	pop rcx
+	mov rcx, rsi
 
 wil:
 	mov byte [rdi], 0
