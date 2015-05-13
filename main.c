@@ -6,7 +6,7 @@
 /*   By: tcoppin <tcoppin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/10 13:43:36 by tcoppin           #+#    #+#             */
-/*   Updated: 2015/05/13 17:18:41 by tcoppin          ###   ########.fr       */
+/*   Updated: 2015/05/13 17:44:55 by tcoppin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -348,14 +348,12 @@ void	test_puts()
 		launch_puts(tab[nb]);
 		nb++;
 	}
+	printf("\033[94mTest number %d with \"Bonjour\" and we close STDOUT :\033[00m\n", (nb + 1));
 	close(1);
-	printf("\033[94mTest number %d with \"Bonjour\" :\033[00m\n", (nb + 1));
-	write(1, "\033[92mft_puts : \033[00m", 15);
 	i = ft_puts("Bonjour");
-	write(1, "\033[91mputs : \033[00m", 12);
 	j = puts("Bonjour");
 	dup2(0, 1);
-	printf("%d ... %d", i, j);
+	printf("\033[92mft_puts return : %d\033[00m\n\033[91mputs return : %d\033[00m\n", i, j);
 }
 
 /* TEST FT_STRLEN */
@@ -497,13 +495,13 @@ void	ft_putstr(char *str)
 void	test_strdup()
 {
 	int		nb;
-	char	*tab[] = {"H", "Hello", ""};
+	char	*tab[] = {"Hello World !", "Coucou", "", "123456789"};
 
 	printf("\n\033[33m------- Test FT_STRDUP -------\033[00m\n");
 	nb = 0;
-	while (nb < 3)
+	while (nb < 4)
 	{
-		printf("\033[94mTest number %d with \"%s\" :\033[00m \n", (nb + 1), tab[nb]);
+		printf("\033[94mTest number %d with \"%s\" :\033[00m ", (nb + 1), tab[nb]);
 		if (launch_strdup(tab[nb]) == 1)
 			printf("\033[32mOK\033[00m\n");
 		else
@@ -526,7 +524,7 @@ void	test_cat()
 	printf("\n\033[33m------- Test FT_CAT -------\033[00m\n");
 	nb = 0;
 	printf("\033[94mTest number %d with fd = 0 :\033[00m \nEnter a text and \"Control + D\" to do the other tests : \n", (nb + 1));
-	//launch_cat(0);
+	launch_cat(0);
 	nb++;
 	fd = open("Makefile", O_RDONLY);
 	printf("\n\033[94mTest number %d with fd = %d :\033[00m \n", (nb + 1), fd);
