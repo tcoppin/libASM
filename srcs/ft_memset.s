@@ -6,7 +6,7 @@
 ;    By: tcoppin <tcoppin@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/05/10 15:56:18 by tcoppin           #+#    #+#              ;
-;    Updated: 2015/05/11 23:52:34 by tcoppin          ###   ########.fr        ;
+;    Updated: 2015/05/13 12:07:45 by tcoppin          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -14,6 +14,7 @@ section .text
 	global _ft_memset
 
 _ft_memset:
+	mov rax, rdi
 	cmp rdi, 0
 	je finish
 
