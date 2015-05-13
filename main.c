@@ -6,7 +6,7 @@
 /*   By: tcoppin <tcoppin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/10 13:43:36 by tcoppin           #+#    #+#             */
-/*   Updated: 2015/05/13 13:38:30 by tcoppin          ###   ########.fr       */
+/*   Updated: 2015/05/13 15:20:13 by tcoppin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -457,17 +457,14 @@ void	test_memcpy()
 }
 
 /* TEST FT_STRDUP */
-int		launch_strdup(/*char *str*/)
+int		launch_strdup(char *str)
 {
-	//char	*s1;
-	//char	*s2;
+	char	*s1;
+	char	*s2;
 
-	//(void)str;
-	//s1 = ft_strdup("toto");
-	//s2 = strdup("toto");
-	char *s;
-	s = ft_strdup("aaaaa");
-	if (strcmp(s, "aaaaa") == 0)
+	s1 = ft_strdup(str);
+	s2 = strdup(str);
+	if (strcmp(s1, s2) == 0)
 		return (1);
 	else
 		return (0);
@@ -475,7 +472,7 @@ int		launch_strdup(/*char *str*/)
 
 void	test_strdup()
 {
-	/*int		nb;
+	int		nb;
 	char	*tab[] = {"Hello World !", "Coucou", "123456789", ""};
 
 	printf("\n\033[33m------- Test FT_STRDUP -------\033[00m\n");
@@ -488,8 +485,8 @@ void	test_strdup()
 		else
 			printf("\033[31mERROR\033[00m\n");
 		nb++;
-	}*/
-	char		*str;
+	}
+	/*char		*str;
 	char		f[] = "h";
 	char		s[] = "hello";
 	char		t[] = "";
@@ -502,7 +499,7 @@ void	test_strdup()
 	printf("[-] Str after strdup (\"%s\") [-]\n", str);
 	str = ft_strdup(t);
 	printf("[-] Str after strdup (\"%s\") [-]\n", str);
-	printf("[+] END OF STRDUP [+]\n");
+	printf("[+] END OF STRDUP [+]\n");*/
 }
 
 /* TEST FT_CAT */
