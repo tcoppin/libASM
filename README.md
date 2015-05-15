@@ -19,7 +19,6 @@ For Part 1 :<br />
 	* ft_isprint<br />
 	* ft_tolower<br />
 	* ft_toupper<br />
-	<br />
 	`make part1`
 
 For Part 2 :<br />
@@ -27,16 +26,13 @@ For Part 2 :<br />
 	* ft_memset<br />
 	* ft_memcpy<br />
 	* ft_strdup<br />
-	<br />
 	`make part2`
 
 For Part 3 :<br />
 	* ft_cat<br />
-	<br />
 	`make part3`
 
 For Bonus :
 	* ft_islower<br />
 	* ft_isupper<br />
-	<br />
 	`make bonus`
