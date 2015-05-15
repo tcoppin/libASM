@@ -6,7 +6,7 @@
 /*   By: tcoppin <tcoppin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/10 13:43:36 by tcoppin           #+#    #+#             */
-/*   Updated: 2015/05/15 14:18:00 by tcoppin          ###   ########.fr       */
+/*   Updated: 2015/05/15 15:54:39 by tcoppin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -559,14 +559,25 @@ void	test_cat()
 {
 	int		nb;
 	int		fd;
+	char	file[2048];
 
 	printf("\n\033[33m------- Test FT_CAT -------\033[00m\n");
 	nb = 0;
 	printf("\033[94mTest number %d with fd = 0 :\033[00m \nEnter a text and \"Control + D\" to do the other tests : \n", (nb + 1));
 	launch_cat(0);
 	nb++;
-	fd = open("Makefile", O_RDONLY);
-	printf("\n\033[94mTest number %d with fd = %d :\033[00m \n", (nb + 1), fd);
+	printf("\n\033[96mEnter a file to test or \"None\" to open the \"Makefile\" : \033[00m\n");
+	scanf("%s", file);
+	if (strcmp(file, "None") == 0)
+		fd = open("Makefile", O_RDONLY);
+	else
+		fd = open(file, O_RDONLY);
+	if (fd < 0)
+	{
+		printf("\n\033[35mError to open %s.\033[00m\n", file);
+		return ;
+	}
+	printf("\033[94mTest number %d with fd = %d :\033[00m \n", (nb + 1), fd);
 	launch_cat(fd);
 	close(fd);
 	printf("\n");
@@ -651,7 +662,7 @@ void	wait_enter()
 {
 	printf("\n\033[96mCheck the tests and press ENTER to do the others tests\033[00m");
 	while (getchar() != '\n')
-		;	
+		;
 }
 
 int		main(int ac, char **av)
@@ -701,8 +712,8 @@ int		main(int ac, char **av)
 	}
 	if (ac == 1 || strcmp(av[1], "bonus") == 0)
 	{
-		if (ac == 1)
-			wait_enter();
+		wait_enter();
+		printf("\n");
 		test_islower(&flag);
 		wait_enter();
 		test_isupper(&flag);
