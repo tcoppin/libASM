@@ -6,7 +6,7 @@
 /*   By: tcoppin <tcoppin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/10 13:43:36 by tcoppin           #+#    #+#             */
-/*   Updated: 2015/05/13 17:44:55 by tcoppin          ###   ########.fr       */
+/*   Updated: 2015/05/15 14:18:00 by tcoppin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		launch_bzero(char *str, int n)
 		return (0);
 }
 
-void	test_bzero()
+void	test_bzero(int *flag)
 {
 	int		nb;
 	char	*tab[] = {"123456789", "", "123"};
@@ -42,7 +42,10 @@ void	test_bzero()
 		if (launch_bzero(tab[nb], tab2[nb]) == 1)
 			printf("\033[32mOK\033[00m\n");
 		else
+		{
+			(*flag)++;
 			printf("\033[31mERROR\033[00m\n");
+		}
 		nb++;
 	}
 }
@@ -67,7 +70,7 @@ int		launch_strcat(char *str, char *str2)
 		return (0);
 }
 
-void	test_strcat()
+void	test_strcat(int *flag)
 {
 	int		nb;
 	char	*tab[] = {"123456", "Bonj", "", "Bonjour", ""};
@@ -81,7 +84,10 @@ void	test_strcat()
 		if (launch_strcat(tab[nb], tab2[nb]) == 1)
 			printf("\033[32mOK\033[00m\n");
 		else
+		{
+			(*flag)++;
 			printf("\033[31mERROR\033[00m\n");
+		}
 		nb++;
 	}
 }
@@ -95,7 +101,7 @@ int		launch_isalpha(int c)
 		return (0);
 }
 
-void	test_isalpha()
+void	test_isalpha(int *flag)
 {
 	int		nb;
 	int		tab[] = {-1, 0, 32, 48, 65, 91, 97, 123, 129};
@@ -115,7 +121,10 @@ void	test_isalpha()
 		if (launch_isalpha(tab[nb]) == 1)
 			printf("\033[32mOK\033[00m\n");
 		else
+		{
+			(*flag)++;
 			printf("\033[31mERROR\033[00m\n");
+		}
 		nb++;
 	}
 }
@@ -129,7 +138,7 @@ int		launch_isdigit(int c)
 		return (0);
 }
 
-void	test_isdigit()
+void	test_isdigit(int *flag)
 {
 	int		nb;
 	int		tab[] = {-1, 0, 32, 51, 69, 94, 101, 124, 128};
@@ -149,7 +158,10 @@ void	test_isdigit()
 		if (launch_isdigit(tab[nb]) == 1)
 			printf("\033[32mOK\033[00m\n");
 		else
+		{
+			(*flag)++;
 			printf("\033[31mERROR\033[00m\n");
+		}
 		nb++;
 	}
 }
@@ -163,7 +175,7 @@ int		launch_isalnum(int c)
 		return (0);
 }
 
-void	test_isalnum()
+void	test_isalnum(int *flag)
 {
 	int		nb;
 	int		tab[] = {-1, 0, 32, 51, 69, 94, 101, 124, 128};
@@ -183,7 +195,10 @@ void	test_isalnum()
 		if (launch_isalnum(tab[nb]) == 1)
 			printf("\033[32mOK\033[00m\n");
 		else
+		{
+			(*flag)++;
 			printf("\033[31mERROR\033[00m\n");
+		}
 		nb++;
 	}
 }
@@ -197,7 +212,7 @@ int		launch_isascii(int c)
 		return (0);
 }
 
-void	test_isascii()
+void	test_isascii(int *flag)
 {
 	int		nb;
 	int		tab[] = {-1, 0, 32, 51, 69, 94, 101, 124, 128};
@@ -217,7 +232,10 @@ void	test_isascii()
 		if (launch_isascii(tab[nb]) == 1)
 			printf("\033[32mOK\033[00m\n");
 		else
+		{
+			(*flag)++;
 			printf("\033[31mERROR\033[00m\n");
+		}
 		nb++;
 	}
 }
@@ -231,7 +249,7 @@ int		launch_isprint(int c)
 		return (0);
 }
 
-void	test_isprint()
+void	test_isprint(int *flag)
 {
 	int		nb;
 	int		tab[] = {-1, 0, 32, 51, 69, 94, 101, 124, 128};
@@ -251,7 +269,10 @@ void	test_isprint()
 		if (launch_isprint(tab[nb]) == 1)
 			printf("\033[32mOK\033[00m\n");
 		else
+		{
+			(*flag)++;
 			printf("\033[31mERROR\033[00m\n");
+		}
 		nb++;
 	}
 }
@@ -265,7 +286,7 @@ int		launch_tolower(int c)
 		return (0);
 }
 
-void	test_tolower()
+void	test_tolower(int *flag)
 {
 	int		nb;
 	int		tab[] = {-1, 0, 32, 51, 69, 94, 101, 124, 128};
@@ -285,7 +306,10 @@ void	test_tolower()
 		if (launch_tolower(tab[nb]) == 1)
 			printf("\033[32mOK\033[00m\n");
 		else
+		{
+			(*flag)++;
 			printf("\033[31mERROR\033[00m\n");
+		}
 		nb++;
 	}
 }
@@ -299,7 +323,7 @@ int		launch_toupper(int c)
 		return (0);
 }
 
-void	test_toupper()
+void	test_toupper(int *flag)
 {
 	int		nb;
 	int		tab[] = {-1, 0, 32, 51, 69, 94, 101, 124, 128};
@@ -319,7 +343,10 @@ void	test_toupper()
 		if (launch_toupper(tab[nb]) == 1)
 			printf("\033[32mOK\033[00m\n");
 		else
+		{
+			(*flag)++;
 			printf("\033[31mERROR\033[00m\n");
+		}
 		nb++;
 	}
 }
@@ -370,7 +397,7 @@ int		launch_strlen(char *str)
 		return (0);
 }
 
-void	test_strlen()
+void	test_strlen(int *flag)
 {
 	int		nb;
 	char	*tab[] = {"Hello World !", "Coucou", "123456789", NULL};
@@ -383,7 +410,10 @@ void	test_strlen()
 		if (launch_strlen(tab[nb]) == 1)
 			printf("\033[32mOK\033[00m\n");
 		else
+		{
+			(*flag)++;
 			printf("\033[31mERROR\033[00m\n");
+		}
 		nb++;
 	}
 }
@@ -404,7 +434,7 @@ int		launch_memset(char *str, int c, int n)
 		return (0);
 }
 
-void	test_memset()
+void	test_memset(int *flag)
 {
 	int		nb;
 	char	*tab[] = {"Hello World !", "Coucou", "123456789", "Bonjour", ""};
@@ -419,7 +449,10 @@ void	test_memset()
 		if (launch_memset(tab[nb], tab2[nb], tab3[nb]) == 1)
 			printf("\033[32mOK\033[00m\n");
 		else
+		{
+			(*flag)++;
 			printf("\033[31mERROR\033[00m\n");
+		}
 		nb++;
 	}
 }
@@ -444,7 +477,7 @@ int		launch_memcpy(char *str, char *str2, int n)
 		return (0);
 }
 
-void	test_memcpy()
+void	test_memcpy(int *flag)
 {
 	int		nb;
 	char	*tab[] = {"Hello World !", "Coucou", "123456789", ""};
@@ -459,7 +492,10 @@ void	test_memcpy()
 		if (launch_memcpy(tab[nb], tab2[nb], tab3[nb]) == 1)
 			printf("\033[32mOK\033[00m\n");
 		else
+		{
+			(*flag)++;
 			printf("\033[31mERROR\033[00m\n");
+		}
 		nb++;
 	}
 }
@@ -492,7 +528,7 @@ void	ft_putstr(char *str)
 	write(1, str, strlen(str));
 }
 
-void	test_strdup()
+void	test_strdup(int *flag)
 {
 	int		nb;
 	char	*tab[] = {"Hello World !", "Coucou", "", "123456789"};
@@ -505,7 +541,10 @@ void	test_strdup()
 		if (launch_strdup(tab[nb]) == 1)
 			printf("\033[32mOK\033[00m\n");
 		else
+		{
+			(*flag)++;
 			printf("\033[31mERROR\033[00m\n");
+		}
 		nb++;
 	}
 }
@@ -530,26 +569,149 @@ void	test_cat()
 	printf("\n\033[94mTest number %d with fd = %d :\033[00m \n", (nb + 1), fd);
 	launch_cat(fd);
 	close(fd);
+	printf("\n");
 	nb++;
 }
 
-int		main(void)
+/* TEST FT_ISLOWER */
+int		launch_islower(int c)
 {
-	test_bzero();
-	test_strcat();
-	test_isalpha();
-	test_isdigit();
-	test_isalnum();
-	test_isascii();
-	test_isprint();
-	test_tolower();
-	test_toupper();
-	test_puts();
-	test_strlen();
-	test_memset();
-	test_memcpy();
-	test_strdup();
-	test_cat();
+	if (ft_islower(c) == islower(c))
+		return (1);
+	else
+		return (0);
+}
+
+void	test_islower(int *flag)
+{
+	int		nb;
+	int		tab[] = {-1, 0, 32, 51, 69, 94, 101, 124, 128};
+
+	printf("\n\033[33m------- Test FT_ISLOWER -------\033[00m\n");
+	nb = 0;
+	while (nb < 9)
+	{
+		if (tab[nb] < 0)
+			printf("\033[94mTest number %d with < 0   :\033[00m ", (nb + 1));
+		else if (tab[nb] > 127)
+			printf("\033[94mTest number %d with >127  :\033[00m ", (nb + 1));			
+		else if (tab[nb] == 0)
+			printf("\033[94mTest number %d with NULL  :\033[00m ", (nb + 1));
+		else
+			printf("\033[94mTest number %d with '%c'   :\033[00m ", (nb + 1), tab[nb]);
+		if (launch_islower(tab[nb]) == 1)
+			printf("\033[32mOK\033[00m\n");
+		else
+		{
+			(*flag)++;
+			printf("\033[31mERROR\033[00m\n");
+		}
+		nb++;
+	}
+}
+
+/* TEST FT_ISUPPER */
+int		launch_isupper(int c)
+{
+	if (ft_isupper(c) == isupper(c))
+		return (1);
+	else
+		return (0);
+}
+
+void	test_isupper(int *flag)
+{
+	int		nb;
+	int		tab[] = {-1, 0, 32, 51, 69, 94, 101, 124, 128};
+
+	printf("\n\033[33m------- Test FT_ISUPPER -------\033[00m\n");
+	nb = 0;
+	while (nb < 9)
+	{
+		if (tab[nb] < 0)
+			printf("\033[94mTest number %d with < 0   :\033[00m ", (nb + 1));
+		else if (tab[nb] > 127)
+			printf("\033[94mTest number %d with >127  :\033[00m ", (nb + 1));			
+		else if (tab[nb] == 0)
+			printf("\033[94mTest number %d with NULL  :\033[00m ", (nb + 1));
+		else
+			printf("\033[94mTest number %d with '%c'   :\033[00m ", (nb + 1), tab[nb]);
+		if (launch_isupper(tab[nb]) == 1)
+			printf("\033[32mOK\033[00m\n");
+		else
+		{
+			(*flag)++;
+			printf("\033[31mERROR\033[00m\n");
+		}
+		nb++;
+	}
+}
+
+void	wait_enter()
+{
+	printf("\n\033[96mCheck the tests and press ENTER to do the others tests\033[00m");
+	while (getchar() != '\n')
+		;	
+}
+
+int		main(int ac, char **av)
+{
+	int		flag;
+
+	flag = 0;
+	if (ac == 1 || strcmp(av[1], "part1") == 0)
+	{
+		test_bzero(&flag);
+		wait_enter();
+		test_strcat(&flag);
+		wait_enter();
+		test_isalpha(&flag);
+		wait_enter();
+		test_isdigit(&flag);
+		wait_enter();
+		test_isalnum(&flag);
+		wait_enter();
+		test_isascii(&flag);
+		wait_enter();
+		test_isprint(&flag);
+		wait_enter();
+		test_tolower(&flag);
+		wait_enter();
+		test_toupper(&flag);
+		wait_enter();
+		test_puts();
+	}
+	if (ac == 1 || strcmp(av[1], "part2") == 0)
+	{
+		if (ac == 1)
+			wait_enter();
+		test_strlen(&flag);
+		wait_enter();
+		test_memset(&flag);
+		wait_enter();
+		test_memcpy(&flag);
+		wait_enter();
+		test_strdup(&flag);
+	}
+	if (ac == 1 || strcmp(av[1], "part3") == 0)
+	{
+		if (ac == 1)
+			wait_enter();
+		test_cat();
+	}
+	if (ac == 1 || strcmp(av[1], "bonus") == 0)
+	{
+		if (ac == 1)
+			wait_enter();
+		test_islower(&flag);
+		wait_enter();
+		test_isupper(&flag);
+	}
+	printf("\n\033[33m------- FINISH -------\033[00m\n");
+	if (flag == 0)
+		printf("\033[32mAll tests are good :D\033[00m\n");
+	else
+		printf("\033[31m%d tests failed :(\033[00m\n", flag);
 	printf("\n");
 	return (0);
 }
