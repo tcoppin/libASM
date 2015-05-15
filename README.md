@@ -6,10 +6,9 @@ The "main" can test the library.
 
 To use it write :
 
-For all tests :
-	`make test`
+- For all tests : `make test`
 
-For Part 1 :<br />
+- For Part 1 : `make part1`<br />
 	* ft_bzero<br />
 	* ft_strcat<br />
 	* ft_isalpha<br />
@@ -18,21 +17,18 @@ For Part 1 :<br />
 	* ft_isascii<br />
 	* ft_isprint<br />
 	* ft_tolower<br />
-	* ft_toupper<br />
-	`make part1`
+	* ft_toupper
 
-For Part 2 :<br />
+- For Part 2 : `make part2`<br />
 	* ft_strlen<br />
 	* ft_memset<br />
 	* ft_memcpy<br />
-	* ft_strdup<br />
-	`make part2`
+	* ft_strdup
 
-For Part 3 :<br />
-	* ft_cat<br />
-	`make part3`
+- For Part 3 : `make part3`<br />
+	* ft_cat
+	
 
-For Bonus :
+- For Bonus : `make bonus`
 	* ft_islower<br />
-	* ft_isupper<br />
-	`make bonus`
+	* ft_isupper
