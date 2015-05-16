@@ -6,7 +6,7 @@
 /*   By: tcoppin <tcoppin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/10 13:43:36 by tcoppin           #+#    #+#             */
-/*   Updated: 2015/05/15 15:54:39 by tcoppin          ###   ########.fr       */
+/*   Updated: 2015/05/16 16:19:46 by tcoppin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -566,6 +566,11 @@ void	test_cat()
 	printf("\033[94mTest number %d with fd = 0 :\033[00m \nEnter a text and \"Control + D\" to do the other tests : \n", (nb + 1));
 	launch_cat(0);
 	nb++;
+	printf("\n\n\033[94mTest number %d when fd = 0 is close :\033[00m \nEnter a text and \"Control + D\" to do the other tests : \n", (nb + 1));
+	close(0);
+	launch_cat(0);
+	nb++;
+	dup2(1, 0);
 	printf("\n\033[96mEnter a file to test or \"None\" to open the \"Makefile\" : \033[00m\n");
 	scanf("%s", file);
 	if (strcmp(file, "None") == 0)
